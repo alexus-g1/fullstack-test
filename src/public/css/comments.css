@@ -1,0 +1,45 @@
+.comment-card {
+  margin-bottom: 1rem;
+}
+.comment-meta {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+.field-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+.is-invalid {
+  border-color: #dc3545;
+}
+.sort-toolbar {
+  gap: 0.5rem;
+}
+
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+#loading-overlay.is-visible {
+  display: flex;
+}
+#loading-overlay .loading-box {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  min-width: 220px;
+}
+#loading-overlay .loading-message {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
