@@ -13,8 +13,6 @@ class CommentModel extends Model
     protected $createdField = "created_at";
     protected $updatedField = "";
 
-    protected $table = "comments";
-
     protected $allowedFields = ["name", "text", "date"]; //date should be passed by client?
 
     protected $validationRules = [
