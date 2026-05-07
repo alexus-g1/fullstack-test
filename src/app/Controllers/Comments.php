@@ -56,7 +56,6 @@ class Comments extends BaseController
         $data = [
             "name" => trim((string) $this->request->getPost("name")),
             "text" => trim((string) $this->request->getPost("text")),
-            "date" => trim((string) $this->request->getPost("date")),
         ];
 
         if (!$this->model->insert($data)) {

@@ -9,7 +9,7 @@
             <label for="sort-field" class="mb-0 mr-2">Сортировка:</label>
             <select id="sort-field" class="form-control form-control-sm w-auto">
                 <option value="id" <?= $sort === "id" ? "selected" : "" ?>>по ID</option>
-                <option value="created_at" <?= $sort === "created_at" ? "selected" : "" ?>>по дате добавления</option>
+                <option value="date" <?= $sort === "date" ? "selected" : "" ?>>по дате добавления</option>
             </select>
             <select id="sort-dir" class="form-control form-control-sm w-auto">
                 <option value="desc" <?= $dir === "desc" ? "selected" : "" ?>>по убыванию</option>
@@ -40,11 +40,6 @@
                     <label for="field-text">Комментарий</label>
                     <textarea id="field-text" name="text" class="form-control" rows="3" required></textarea>
                     <div class="field-error" data-error-for="text"></div>
-                </div>
-                <div class="form-group">
-                    <label for="field-date">Дата</label>
-                    <input type="date" id="field-date" name="date" class="form-control" required>
-                    <div class="field-error" data-error-for="date"></div>
                 </div>
                 <button type="submit" class="btn btn-primary">Отправить</button>
                 <span id="form-status" class="ml-2"></span>

@@ -22,17 +22,13 @@ class CreateCommentsTable extends Migration
                 "type" => "TEXT",
             ],
             "date" => [
-                "type" => "VARCHAR", // still dont know why client should choose date but let it be another column.
-                "constraint" => 32,
-            ],
-            "created_at" => [
                 "type" => "TIMESTAMP",
-                "default" => new \CodeIgniter\Database\RawSql("CURRENT_TIMESTAMP"), //found this cool thing. Should just work.
+                "default" => new \CodeIgniter\Database\RawSql("CURRENT_TIMESTAMP"),
             ],
         ]);
 
         $this->forge->addPrimaryKey("id");
-        $this->forge->addKey("created_at"); //let it be index lol.
+        $this->forge->addKey("date");
         $this->forge->createTable("comments");
     }
 

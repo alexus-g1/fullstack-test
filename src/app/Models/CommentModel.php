@@ -10,15 +10,14 @@ class CommentModel extends Model
     protected $returnType = "array";
 
     protected $useTimestamps = true;
-    protected $createdField = "created_at";
+    protected $createdField = "date";
     protected $updatedField = "";
 
-    protected $allowedFields = ["name", "text", "date"]; //date should be passed by client?
+    protected $allowedFields = ["name", "text"];
 
     protected $validationRules = [
         "name" => "required|valid_email|max_length[255]",
         "text" => "required|string|max_length[5000]",
-        "date" => "required|string|max_length[32]",
     ];
 
     protected $validationMessages = [
@@ -31,13 +30,9 @@ class CommentModel extends Model
             "required" => "Текст комментария обязателен.",
             "max_length" => "Текст не должен превышать 5000 символов.",
         ],
-        "date" => [
-            "required" => "Укажите дату.",
-            "max_length" => "Дата не должна превышать 32 символа.",
-        ],
     ];
 
-    public const SORT_FIELDS = ["id", "created_at"];
+    public const SORT_FIELDS = ["id", "date"];
     public const SORT_DIRS = ["asc", "desc"];
 
     public function listSorted(string $sort, string $dir, int $perPage)

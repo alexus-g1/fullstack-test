@@ -167,7 +167,6 @@
 
     var name = $form.find('[name="name"]').val().trim();
     var text = $form.find('[name="text"]').val().trim();
-    var date = $form.find('[name="date"]').val().trim();
 
     var clientErrors = {};
     if (!name) {
@@ -177,9 +176,6 @@
     }
     if (!text) {
       clientErrors.text = "Текст комментария обязателен.";
-    }
-    if (!date) {
-      clientErrors.date = "Укажите дату.";
     }
 
     if (Object.keys(clientErrors).length > 0) {
@@ -191,7 +187,7 @@
     $submit.prop("disabled", true);
     showLoading("Сохраняем комментарий…");
 
-    var payload = { name: name, text: text, date: date };
+    var payload = { name: name, text: text };
     payload[csrfTokenName] = getCsrfHash();
 
     $.ajax({
