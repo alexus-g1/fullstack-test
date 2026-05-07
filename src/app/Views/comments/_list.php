@@ -9,7 +9,7 @@
                         <strong><?= esc($comment["name"]) ?></strong>
                         <div class="comment-meta">
                             #<?= (int) $comment["id"] ?>
-                            &middot; добавлен: <?= esc($comment["date"]) ?>
+                            &middot; добавлен: <?= esc(date("d.m.Y H:i", strtotime($comment["date"]))) ?>
                         </div>
                     </div>
                     <button type="button"
