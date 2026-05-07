@@ -36,4 +36,25 @@ class CommentModel extends Model
             "max_length" => "Дата не должна превышать 32 символа.",
         ],
     ];
+
+    public const SORT_FIELDS = ["id", "created_at"];
+    public const SORT_DIRS = ["asc", "desc"];
+
+    public function listSorted(string $sort, string $dir, int $perPage)
+    {
+        $sort = in_array($sort, self::SORT_FIELDS, true) ? $sort : "id";
+        $dir = in_array(strtolower($dir), self::SORT_DIRS, true) ? $dir : "desc";
+
+        $results = $this->orderBy($sort, $dir)->paginate($perPage);
+        $pageCount = $this->pager->getPageCount();
+        $current = $this->pager->getCurrentPage();
+
+        if ($pageCount > 0 && $current > $pageCount) {
+            $results = $this->orderBy($sort, $dir)->paginate($perPage, "default", $pageCount);
+        }
+
+        $this->pager->only(["sort", "dir"]);
+
+        return $results;
+    }
 }
